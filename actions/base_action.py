@@ -4,6 +4,9 @@ class BaseAction:
         self.subactions = subactions or []
     
     def perform(self):
-        print(f"Performing action: {self.name}")
+        self.printAction()
         for subaction in self.subactions:
             subaction.perform()
+    
+    def printAction(self):
+        print(f"Performing action: {self.name}")

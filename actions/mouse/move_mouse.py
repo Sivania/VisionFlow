@@ -5,13 +5,13 @@ import random
 
 class MoveMouse(BaseAction):
     def __init__(self, x, y, subactions=None):
-        super().__init__("Move mouse", subactions)
+        super().__init__(f"moving mouse from {x} to {y}", subactions)
 
         self.x = x
         self.y = y
 
     def perform(self):
-        print(f"moving mouse from {self.x} to {self.y}")
+        self.printAction()
         self.human_like_mouse_move()
 
     def human_like_mouse_move(self, steps=100, shake=0.5, duration=1):
