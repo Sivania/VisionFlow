@@ -14,7 +14,7 @@ class MoveMouse(BaseAction):
         self.printAction()
         self.human_like_mouse_move()
 
-    def human_like_mouse_move(self, steps=100, shake=0.5, duration=1):
+    def human_like_mouse_move(self, steps=10, shake=0.5, duration=1):
         # Get the current mouse position
         start_x, start_y = pyautogui.position()
         
@@ -33,7 +33,7 @@ class MoveMouse(BaseAction):
             step_y += random.uniform(-shake, shake)
             
             # Move the mouse to the next position
-            pyautogui.moveTo(step_x, step_y, _pause=False)
+            pyautogui.moveTo(step_x, step_y, duration=0.1)
             
             # Pause briefly at this step to control the speed of the mouse
             time.sleep(duration / steps)
