@@ -1,3 +1,4 @@
+import json
 from ..base_action import BaseAction
 import pyautogui
 import time
@@ -14,6 +15,14 @@ class MoveMouse(BaseAction):
         self.printAction()
         self.human_like_mouse_move()
 
+    def serializeJson(self):
+        action_data = {
+            'type': self.__class__.__name__,
+            'x': self.x,
+            'y': self.y
+        }
+        return json.dumps(action_data)
+    
     def human_like_mouse_move(self, steps=10, shake=0.5, duration=1):
         # Get the current mouse position
         start_x, start_y = pyautogui.position()

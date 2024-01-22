@@ -4,6 +4,7 @@ import pyautogui
 class ClickMouse(BaseAction):
     def __init__(self, rightClick=False, subactions=None):
         super().__init__("Moving mouse", subactions)
+        
         self.isRightClick = rightClick
         
     def perform(self):
@@ -15,3 +16,5 @@ class ClickMouse(BaseAction):
             pyautogui.click(button='right')
         else:
             pyautogui.click()
+    
+    

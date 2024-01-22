@@ -1,3 +1,5 @@
+import json
+
 class BaseAction:
     def __init__(self, name, subactions=None):
         self.name = name
@@ -10,3 +12,6 @@ class BaseAction:
     
     def printAction(self):
         print(f"Performing action: {self.name}")
+        
+    def serializeJson(self):
+        return json.dumps(self)
